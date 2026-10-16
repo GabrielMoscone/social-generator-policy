@@ -1,64 +1,123 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Política de Privacidade — Reels Generator</title>
+<title>Privacy Policy — Social Generator</title>
 <style>
   body{max-width:42rem;margin:3rem auto;padding:0 1.25rem;
        font:16px/1.65 system-ui,sans-serif;color:#1a1a1a}
   h1{font-size:1.6rem} h2{font-size:1.1rem;margin-top:2rem}
-  a{color:#0b5} footer{margin-top:3rem;color:#666;font-size:.9rem}
+  a{color:#0b5} table{border-collapse:collapse;width:100%;font-size:.95rem}
+  th,td{text-align:left;vertical-align:top;padding:.4rem .5rem;border-bottom:1px solid #e5e5e5}
+  footer{margin-top:3rem;padding-top:1rem;border-top:1px solid #eee;color:#666;font-size:.9rem}
 </style>
 </head>
 <body>
-<h1>Política de Privacidade — Reels Generator</h1>
-<p><strong>Última atualização:</strong> 18 de setembro de 2026</p>
+<h1>Privacy Policy — Social Generator</h1>
+<p><strong>Last updated:</strong> October 16, 2026</p>
 
-<h2>O que é este aplicativo</h2>
-<p>Reels Generator é uma ferramenta pessoal que roda inteiramente na máquina
-do próprio desenvolvedor. Ela publica vídeos nos canais do YouTube que
-pertencem a ele e lê as estatísticas desses mesmos vídeos. Não é oferecida ao
-público, não tem cadastro e não possui usuários além do próprio autor.</p>
+<h2>1. About this app</h2>
+<p>Social Generator is a tool that produces short vertical videos (narration,
+images and rendering) and publishes them to social media accounts that the
+person operating it has connected: YouTube, Facebook, Instagram and TikTok. It
+has no public sign-up. The only people whose data it handles are the account
+owners who explicitly connect their accounts through each platform's own
+authorization screen.</p>
 
-<h2>Dados acessados</h2>
-<p>Por meio das YouTube API Services, o aplicativo acessa exclusivamente:</p>
+<h2>2. Data we access</h2>
+<table>
+  <tr><th>Platform</th><th>Permission</th><th>What it is used for</th></tr>
+  <tr><td>TikTok</td><td><code>user.info.basic</code></td>
+      <td>Read the account's open ID, display name and avatar, to show which
+      account will receive a post.</td></tr>
+  <tr><td>TikTok</td><td><code>video.publish</code></td>
+      <td>Publish a video only after the account owner reviews it and presses
+      “Post”, with the privacy level, interaction settings and content
+      disclosure they chose. Also used to read the creator's posting settings
+      and the status of a post.</td></tr>
+  <tr><td>TikTok</td><td><code>video.upload</code></td>
+      <td>Send a video to the account's TikTok inbox as a draft, for the owner
+      to finish in the TikTok app.</td></tr>
+  <tr><td>YouTube</td><td><code>youtube.upload</code>, <code>youtube.readonly</code></td>
+      <td>Upload videos to the connected channel and read view, like and
+      comment counts of those videos.</td></tr>
+  <tr><td>Facebook / Instagram</td><td>Page and Instagram content publishing</td>
+      <td>Publish Reels to the connected Page and Instagram account.</td></tr>
+</table>
+<p>The app does not read followers, messages, the content of comments, other
+users' data, or any content that the connected account did not publish
+through this app. It does not use any data for advertising, profiling, or
+training of machine-learning models, and it does not sell or share data.</p>
+
+<h2>3. Data we store</h2>
 <ul>
-  <li><strong>Envio de vídeos</strong> (<code>youtube.upload</code>) — para
-      publicar vídeos nos canais do próprio titular da conta autorizada.</li>
-  <li><strong>Leitura de dados</strong> (<code>youtube.readonly</code>) — para
-      ler título, estado de publicação e estatísticas dos vídeos desses
-      canais.</li>
+  <li><strong>Access and refresh tokens</strong> for each connected account,
+      and their expiry time, so that scheduled posts keep working.</li>
+  <li><strong>Account identifiers</strong>: the platform's account ID (for
+      TikTok, the <code>open_id</code>) and the display name.</li>
+  <li><strong>Post records</strong>: which video was sent to which account,
+      when, the choices made on the posting screen, the publish ID returned by
+      the platform, and the result or error.</li>
+  <li><strong>The videos themselves</strong>, which are produced by the app.</li>
 </ul>
-<p>O aplicativo não acessa dados de terceiros, não lê comentários, não coleta
-informações de outros usuários do YouTube e não utiliza nenhum dado para
-publicidade, perfilamento ou treinamento de modelos.</p>
+<p>The creator's avatar and posting settings returned by TikTok are fetched
+each time the posting screen opens and are not stored.</p>
 
-<h2>Onde os dados ficam</h2>
-<p>As credenciais de autorização (tokens OAuth) e os metadados dos vídeos são
-gravados em um banco de dados local, na máquina do desenvolvedor. Nada é
-enviado a servidores do autor, porque não existem servidores do autor. Não há
-compartilhamento, venda ou transferência de dados a terceiros.</p>
+<h2>4. Where data is kept</h2>
+<p>Videos are produced and kept on the operator's computer. Tokens, account
+identifiers and post records are kept in a PostgreSQL database hosted by
+<a href="https://neon.com/privacy-policy">Neon</a>. A rendered video may be
+stored temporarily in <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare
+R2</a> so that scheduled posts can be sent while the computer is off, and
+those scheduled jobs run on
+<a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">GitHub
+Actions</a>. These providers only host the data; they do not receive it for
+their own purposes.</p>
 
-<h2>Retenção e exclusão</h2>
-<p>Os dados permanecem no banco local enquanto o aplicativo estiver em uso e
-são apagados junto com ele. A autorização concedida ao aplicativo pode ser
-revogada a qualquer momento em
-<a href="https://myaccount.google.com/permissions">
-myaccount.google.com/permissions</a>, o que encerra imediatamente todo o
-acesso.</p>
+<h2>5. Retention and deletion</h2>
+<ul>
+  <li>Tokens are kept while the account remains connected. Disconnecting an
+      account in the app's settings deletes its tokens and its post
+      records.</li>
+  <li>A video copy in Cloudflare R2 is deleted once it has been published to
+      all destinations.</li>
+  <li>Deleting a channel in the app deletes its accounts, tokens and post
+      records.</li>
+  <li>Access can be revoked at any time from the platform itself: in the
+      TikTok app under <em>Settings and privacy → Security &amp; permissions →
+      Apps and services</em>; for Google at
+      <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>;
+      for Meta under <em>Settings → Business integrations</em>. Revoking
+      immediately stops all access.</li>
+</ul>
+<p>To request deletion of any data related to your account, write to the
+contact below and it will be removed within 30 days.</p>
 
-<h2>YouTube API Services</h2>
-<p>Este aplicativo usa as YouTube API Services. Ao utilizá-lo, você está
-sujeito aos <a href="https://www.youtube.com/t/terms">Termos de Serviço do
-YouTube</a> e à <a href="https://policies.google.com/privacy">Política de
-Privacidade do Google</a>.</p>
+<h2>6. Security</h2>
+<p>Tokens are never shown in the app's interface after being saved, and are
+transmitted only over HTTPS. When the app's interface is reachable from the
+internet, it is protected by a password.</p>
 
-<h2>Contato</h2>
-<p>Dúvidas sobre esta política: <a href="mailto:gameclipmaster2@gmail.com">
-gameclipmaster2@gmail.com</a></p>
+<h2>7. Platform terms</h2>
+<p>Use of each platform through this app is also subject to that platform's
+terms: the <a href="https://www.tiktok.com/legal/page/global/terms-of-service/en">TikTok
+Terms of Service</a>, the <a href="https://www.youtube.com/t/terms">YouTube
+Terms of Service</a> and <a href="https://policies.google.com/privacy">Google
+Privacy Policy</a>, and the <a href="https://www.facebook.com/privacy/policy/">Meta
+Privacy Policy</a>. This app uses YouTube API Services.</p>
 
-<footer>Reels Generator — ferramenta de uso pessoal, sem fins de distribuição
-pública.</footer>
+<h2>8. Changes</h2>
+<p>This policy may be updated; the date at the top always reflects the latest
+version.</p>
+
+<h2>9. Contact</h2>
+<p><a href="mailto:gameclipmaster2@gmail.com">gameclipmaster2@gmail.com</a></p>
+
+<footer>
+  <a href="./index.html">Social Generator</a> ·
+  <a href="./termos.html">Terms of Service</a> ·
+  <a href="./privacidade.html">Privacy Policy</a>
+</footer>
 </body>
 </html>
